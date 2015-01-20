@@ -1,0 +1,8 @@
+.project
+.classpath
+.settings
+/app*/target
+/app*/.project
+/app*/.classpath
+/app*/.settings
+/app*/.externalToolBuilders

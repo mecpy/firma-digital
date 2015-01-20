@@ -1,0 +1,230 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.datosparaguay</groupId>
+		<artifactId>app-signer</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<artifactId>app-signer-client</artifactId>
+	<packaging>jar</packaging>
+	<name>App Signer Client</name>
+
+	<build>
+		<finalName>${project.artifactId}-${os}-${arch}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>webstart-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+
+				<executions>
+					<execution>
+						<id>package</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jnlp-inline</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<!-- dependencies> <excludes> <exclude> org.eclipse.swt:org.eclipse.swt.win32.win32.x86_64 
+						</exclude> <exclude> org.eclipse.swt:org.eclipse.swt.gtk.linux.x86_64 </exclude> 
+						</excludes> </dependencies -->
+					<jnlp>
+						<outputFile>app.jsp</outputFile>
+						<mainClass>org.datosparaguay.Main</mainClass>
+					</jnlp>
+
+					<libPath>lib</libPath>
+
+					<sign>
+						<keystore>keystore</keystore>
+						<keypass>qwerty</keypass>
+						<storepass>qwerty</storepass>
+						<alias>key</alias>
+						<validity>3650</validity>
+
+						<dnameCn>nahuel</dnameCn>
+						<dnameOu>Datos Paraguay</dnameOu>
+						<dnameO>Datos Paraguay</dnameO>
+						<dnameL>Asuncion</dnameL>
+						<dnameSt>Capital</dnameSt>
+						<dnameC>AS</dnameC>
+
+						<verify>true</verify>
+						<keystoreConfig>
+							<delete>true</delete>
+							<gen>true</gen>
+						</keystoreConfig>
+					</sign>
+
+					<unsignAlreadySignedJars>true</unsignAlreadySignedJars>
+
+					<pack200>false</pack200>
+					<gzip>false</gzip>
+					<outputJarVersions>false</outputJarVersions>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<!-- <dependency> <groupId>org.eclipse.swt</groupId> <artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId> 
+		<version>${swt-version}</version> </dependency> <dependency> <groupId>org.eclipse.swt</groupId> 
+		<artifactId>org.eclipse.swt.cocoa.macosx</artifactId> <version>${swt-version}</version> 
+		</dependency> -->
+	<profiles>
+		<profile>
+			<id>linux-x86_64</id>
+			<activation>
+				
+				<os>
+					<name>linux</name>
+					<arch>x86_64</arch>
+				</os>
+			</activation>
+			<properties>
+				<swt-artifactId>org.eclipse.swt.gtk.linux.x86_64</swt-artifactId>
+				<os>linux</os>
+				<arch>x86_64</arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>linux-x86</id>
+			<activation>
+				<os>
+					<name>linux</name>
+					<arch>x86</arch>
+				</os>
+			</activation>
+			<properties>
+				<swt-artifactId>org.eclipse.swt.gtk.linux.x86</swt-artifactId>
+				<os>linux</os>
+				<arch>x86</arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>windows-x86</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<os>
+					<family>windows</family>
+					<arch>x86</arch>
+				</os>
+			</activation>
+			<properties>
+				<swt-artifactId>org.eclipse.swt.win32.win32.x86</swt-artifactId>
+				<os>windows</os>
+				<arch>x86</arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>windows-x86_64</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>x86_64</arch>
+				</os>
+			</activation>
+			<properties>
+				<swt-artifactId>org.eclipse.swt.win32.win32.x86_64</swt-artifactId>
+				<os>windows</os>
+				<arch>x86_64</arch>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>${itext-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>${bc-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${http-client-version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>${http-client-version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>${http-core-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.swt</groupId>
+			<artifactId>${swt-artifactId}</artifactId>
+			<version>${swt-version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.ui</groupId>
+			<artifactId>org.eclipse.ui.workbench</artifactId>
+			<version>3.7.1.v20120104-1859</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>swt-repo</id>
+			<url>https://swt-repo.googlecode.com/svn/repo/</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<swt-version>4.3.2</swt-version>
+		<jar-extension>.jar</jar-extension>
+		<itext-version>5.5.3</itext-version>
+		<bc-version>1.51</bc-version>
+		<http-client-version>4.3.6</http-client-version>
+		<http-core-version>4.3.3</http-core-version>
+		<jackson-version>2.4.4</jackson-version>
+		<jnlp-host>desarrollo</jnlp-host>
+	</properties>
+</project>

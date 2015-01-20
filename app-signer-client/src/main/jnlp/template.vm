@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp codebase="http://$jnlp-host:8080/app-signer-web/" href="$outputFile" spec="1.0+">
+  <information>
+    <title>App Signer</title>
+    <vendor>Datos Paraguay</vendor>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se href="http://java.sun.com/products/autodl/j2se" initial-heap-size="32m" max-heap-size="512m" version="1.6+"/>
+    <property name="jnlp.versionEnabled" value="false"/>
+    <property name="SWT_GTK3" value="0"/>
+    
+
+    <jar href="lib/app-signer-client.jar" main="true"/>
+    <jar href="lib/itextpdf-$itext-version$jar-extension"/>
+    <jar href="lib/bcpkix-jdk15on-$bc-version$jar-extension"/>
+    <jar href="lib/bcprov-jdk15on-$bc-version$jar-extension"/>
+    
+    
+    <jar href="lib/org.eclipse.ui.workbench-3.7.1.v20120104-1859.jar"/>
+    <jar href="lib/org.eclipse.jface-3.7.0.v20110928-1505.jar"/>
+    <jar href="lib/org.eclipse.equinox.common-3.6.0.v20110523.jar"/>
+    <jar href="lib/org.eclipse.core.commands-3.6.0.I20110111-0800.jar"/>
+    <jar href="lib/org.eclipse.osgi-3.7.2.v20120110-1415.jar"/>
+    
+    $dependencies
+    
+  </resources>
+
+  <resources arch="x86" os="Windows">
+    <jar href="lib/org.eclipse.swt.win32.win32.x86-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="x86_64" os="Windows">
+    <jar href="lib/org.eclipse.swt.win32.win32.x86_64-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="amd64" os="Windows">
+    <jar href="lib/org.eclipse.swt.win32.win32.x86_64-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="x86_64" os="Linux">
+    <jar href="lib/org.eclipse.swt.gtk.linux.x86_64-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="amd64" os="Linux">
+    <jar href="lib/org.eclipse.swt.gtk.linux.x86_64-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="x86" os="Linux">
+    <jar href="lib/org.eclipse.swt.gtk.linux.x86-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="x86_64" os="Mac">
+    <jar href="lib/org.eclipse.swt.cocoa.macosx.x86_64-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="amd64" os="Mac">
+    <jar href="lib/org.eclipse.swt.cocoa.macosx.x86_64-$swt-version$jar-extension"/>
+  </resources>
+  <resources arch="x86" os="Mac">
+    <jar href="lib/org.eclipse.swt.cocoa.macosx-$swt-version$jar-extension"/>
+  </resources>
+  
+  <application-desc main-class="$mainClass"/>
+</jnlp>
