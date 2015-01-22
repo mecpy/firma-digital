@@ -3,7 +3,7 @@
 <jnlp spec="1.0+" codebase=<%= "\"" + request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/\"" + " href=\"app.jnlp" + (request.getQueryString() == null ? "\"" : "?" + request.getQueryString() + "\"") %>  >
   <information>
    <title>App Signer</title>
-   <vendor>AIT</vendor>
+   <vendor>Datos Paraguay</vendor>
   </information>
   <security>
    <all-permissions/>
@@ -84,7 +84,7 @@
  			valueString = value[0];
  		}
  		
- 		System.out.println("***** " + key + " - " + valueString);
+ 		//System.out.println("***** " + key + " - " + valueString);
  	}
  %>
   </application-desc>

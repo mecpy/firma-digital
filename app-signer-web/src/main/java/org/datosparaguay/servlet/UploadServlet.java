@@ -23,6 +23,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+/**
+ * Servlet para subida de archivos firmados
+ * 
+ * @author Nahuel Hernández
+ *
+ */
 @SuppressWarnings("serial")
 @WebServlet(name = "UploadServlet", urlPatterns = { "/upload" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
