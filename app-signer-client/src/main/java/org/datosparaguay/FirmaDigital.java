@@ -475,8 +475,10 @@ public class FirmaDigital {
 		}
 
 		String firmante = "Firmante";
-		for (Certificate cert : chain) {
+		//for (Certificate cert : chain) {
 			//System.out.println("Certificate is: " + cert);
+		if (chain.length > 0) {
+			Certificate cert = chain[0];
 			if (cert instanceof X509Certificate) {
 				X509Certificate x = (X509Certificate) cert;
 				X500Name x500name = new JcaX509CertificateHolder(x).getSubject();
@@ -484,6 +486,7 @@ public class FirmaDigital {
 				firmante = IETFUtils.valueToString(o.getFirst().getValue());
 			}
 		}
+		//}
 		
 		appearance.setLayer2Text("Firmado por: " + firmante);
 		float fontSize = 7f;
