@@ -6,12 +6,10 @@
     </head>
     <body>
         <form method="POST" action="upload" enctype="multipart/form-data" >
-            File: 
+            Archivo: 
             <input type="file" name="archivo" id="file" /> <br/>
-            Destination: 
-            <input type="text" value="/tmp" name="destination"/><br/>
             app-param: 
-            <input type="text" value="{id:1}" name="app-param"/><br/>
+            <input type="text" value="{%22id%22:%221%22}" name="app-param"/><br/>
             success: 
             <input type="text" value="true" name="success"/><br/>
             
