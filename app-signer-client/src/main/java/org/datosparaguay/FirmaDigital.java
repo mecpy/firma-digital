@@ -79,10 +79,10 @@ public class FirmaDigital {
 	private boolean initialized = false;
 	
 	// propiedades del field de firma
-	private static float LLY = 742;
-	private static float LLX = 380;
-	private static float URY = 780;
-	private static float URX = 550;
+	private static float LLY = 752; // punto B1
+	private static float LLX = 350; // punto B2
+	private static float URY = 780; // punto D1
+	private static float URX = 550; // punto D2
 	private static String DEFAULT_FIELD_NAME = "firma";
 	
 	private static float SEPARATION = 2;
