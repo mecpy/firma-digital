@@ -6,3 +6,4 @@
 /app*/.classpath
 /app*/.settings
 /app*/.externalToolBuilders
+/app-signer-client/nb-configuration.xml
