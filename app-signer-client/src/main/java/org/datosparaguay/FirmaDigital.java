@@ -315,7 +315,10 @@ public class FirmaDigital {
 			// set the widget properties
 			float lly = 742 - ((firmas - 1) * 40);
 			float ury = 780 - ((firmas - 1) * 40);
-			field.setWidget(new Rectangle(380, lly, 550, ury), PdfAnnotation.HIGHLIGHT_OUTLINE);
+                        float llx = 380 - ((firmas - 1) * 40);
+                        float urx = 550 - ((firmas - 1) * 40);
+                        
+			field.setWidget(new Rectangle(llx, lly, urx, ury), PdfAnnotation.HIGHLIGHT_OUTLINE);
 			field.setFlags(PdfAnnotation.FLAGS_PRINT);
 			// add the annotation
 			stamper.addAnnotation(field, 1);
