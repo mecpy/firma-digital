@@ -451,12 +451,12 @@ public class FirmaDigital {
 		
 		//appearance.setReason(reason);
 		//appearance.setLocation(location);
-		
+		int firmas = 0;
 		//numero de campos de firmas existentes
 		if (fieldName == null) {
 			AcroFields af = reader.getAcroFields();
 			ArrayList<String> names = af.getSignatureNames();
-			int firmas = names.size();
+			firmas = names.size();
 			System.out.println("Cantidad de firmas: " + firmas);
 			String newFieldName = DEFAULT_FIELD_NAME + "_" + (firmas + 1);
 			
@@ -478,6 +478,13 @@ public class FirmaDigital {
 		}
 
 		String firmante = "Firmante";
+                String cargo = "Cargo";
+                if (firmas == 0){
+                    cargo = "(2)";
+                } else {
+                    cargo = "(1)";
+                }
+                
 		//for (Certificate cert : chain) {
 			//System.out.println("Certificate is: " + cert);
 		if (chain.length > 0) {
@@ -491,7 +498,7 @@ public class FirmaDigital {
 		}
 		//}
 		
-		appearance.setLayer2Text("Firmado por: " + firmante);
+		appearance.setLayer2Text("Firmado por: " + firmante +" "+ cargo);
 		float fontSize = 7f;
 		appearance.setLayer2Font(new Font(FontFamily.TIMES_ROMAN, fontSize));
 		
