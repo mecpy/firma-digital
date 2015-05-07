@@ -56,7 +56,7 @@
 					<libPath>lib</libPath>
 
 					<sign>
-						<keystore>${basedir}/src/main/jnlp/keystore</keystore>
+						<keystore>${basedir}/src/main/jnlp/keystoremec</keystore>
 						<keypass>qwerty</keypass>
 						<storepass>qwerty</storepass>
 						<alias>key</alias>
