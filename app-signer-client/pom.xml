@@ -56,23 +56,28 @@
 					<libPath>lib</libPath>
 
 					<sign>
-						<keystore>keystore</keystore>
+						<keystore>${basedir}/src/main/jnlp/keystore</keystore>
 						<keypass>qwerty</keypass>
 						<storepass>qwerty</storepass>
 						<alias>key</alias>
 						<validity>3650</validity>
-
+						
+						<!--  solo necesario para generar, 
+						se puede configurar en la generacion en el tag keystoreConfig  -->
+						
+						<!--
 						<dnameCn>nahuel</dnameCn>
 						<dnameOu>Datos Paraguay</dnameOu>
 						<dnameO>Datos Paraguay</dnameO>
 						<dnameL>Asuncion</dnameL>
 						<dnameSt>Capital</dnameSt>
 						<dnameC>AS</dnameC>
-
+						-->
+						
 						<verify>true</verify>
 						<keystoreConfig>
-							<delete>true</delete>
-							<gen>true</gen>
+							<delete>false</delete>
+							<gen>false</gen>
 						</keystoreConfig>
 					</sign>
 
