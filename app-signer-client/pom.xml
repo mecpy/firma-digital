@@ -65,15 +65,14 @@
 						<!--  solo necesario para generar, 
 						se puede configurar en la generacion en el tag keystoreConfig  -->
 						
-						<!--
-						<dnameCn>nahuel</dnameCn>
-						<dnameOu>Datos Paraguay</dnameOu>
-						<dnameO>Datos Paraguay</dnameO>
+						<!-- 
+						<dnameCn>MEC</dnameCn>
+						<dnameOu>MEC</dnameOu>
+						<dnameO>MEC</dnameO>
 						<dnameL>Asuncion</dnameL>
 						<dnameSt>Capital</dnameSt>
 						<dnameC>AS</dnameC>
-						-->
-						
+						 -->
 						<verify>true</verify>
 						<keystoreConfig>
 							<delete>false</delete>

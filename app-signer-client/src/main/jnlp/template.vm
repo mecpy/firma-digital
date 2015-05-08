@@ -2,7 +2,7 @@
 <jnlp codebase="http://$jnlp-host:8080/app-signer-web/" href="$outputFile" spec="1.0+">
   <information>
     <title>App Signer</title>
-    <vendor>Datos Paraguay</vendor>
+    <vendor>MEC</vendor>
   </information>
   <security>
     <all-permissions/>

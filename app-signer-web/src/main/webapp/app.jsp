@@ -3,7 +3,7 @@
 <jnlp spec="1.0+" codebase=<%= "\"" + request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/\"" + " href=\"app.jnlp" + (request.getQueryString() == null ? "\"" : "?" + request.getQueryString() + "\"") %>  >
   <information>
    <title>App Signer</title>
-   <vendor>Datos Paraguay</vendor>
+   <vendor>MEC</vendor>
   </information>
   <security>
    <all-permissions/>
